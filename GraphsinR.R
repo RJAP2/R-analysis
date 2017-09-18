@@ -1,3 +1,5 @@
+library(ggplot2)
+
 qplot(thread127115$DateTime, thread127115$Analytic, data=thread127115, size=4)
 
 thread127115findTopPostPerYear = as.data.frame(as.table(by(thread127115, year(thread127115$Date), function(df) NROW(df$PostID)))) #statistics of number of posts per year
