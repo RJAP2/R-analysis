@@ -197,6 +197,15 @@ plot(anonPostsCountInThread283958$as.yearmon.test.Date., anonPostsCountInThread2
 abline(fitAnon)
 summary(fitAnon)
 
+#
+#
+#
+freqAnonTop6Threads = as.data.frame(as.table(by(top6ThreadwMostPostsFullDataAnon, year(top6ThreadwMostPostsFullDataAnon$Date), function(df) NROW(df$PostID) )))
+plot(freqAnonTop6Threads$year.top6ThreadwMostPostsFullDataAnon.Date. , freqAnonTop6Threads$Freq)
+#
+#
+#
+
 
 #same as above except apply it to the whole data
 anonFreq = as.data.frame(as.table(by(anon, as.yearmon(anon$Date), function(df) NROW(df$PostID))))
