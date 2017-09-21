@@ -200,11 +200,49 @@ summary(fitAnon)
 #
 #
 #
+#
+
 freqAnonTop6Threads = as.data.frame(as.table(by(top6ThreadwMostPostsFullDataAnon, year(top6ThreadwMostPostsFullDataAnon$Date), function(df) NROW(df$PostID) )))
 plot(freqAnonTop6Threads$year.top6ThreadwMostPostsFullDataAnon.Date. , freqAnonTop6Threads$Freq)
+
+t.test(top6ThreadwMostPostsFullDataWOutAnon$Analytic ,top6ThreadwMostPostsFullData$Analytic,  "greater", conf.level = 0.95)
+#p-value = 0.5876
+
+t.test(top6ThreadwMostPostsFullDataWOutAnon$Clout ,top6ThreadwMostPostsFullData$Clout,  "greater", conf.level = 0.95)
+#p-value = 0.3257
+
+t.test(top6ThreadwMostPostsFullDataWOutAnon$Tone ,top6ThreadwMostPostsFullData$Tone,  "less", conf.level = 0.95)
+#p-value = 0.1716
+
+t.test(top6ThreadwMostPostsFullDataWOutAnon$affect ,top6ThreadwMostPostsFullData$affect,  "greater", conf.level = 0.95)
+#p-value = 0.4349
+
+t.test(top6ThreadwMostPostsFullDataWOutAnon$posemo ,top6ThreadwMostPostsFullData$posemo,  "greater", conf.level = 0.95)
+#p-value = 0.5065
+
+t.test(top6ThreadwMostPostsFullDataWOutAnon$negemo ,top6ThreadwMostPostsFullData$negemo,  "greater", conf.level = 0.95)
+#p-value = 0.3368
+
+t.test(top6ThreadwMostPostsFullDataWOutAnon$anx ,top6ThreadwMostPostsFullData$anx,  "greater", conf.level = 0.95)
+#p-value = 0.4827
+
+t.test(top6ThreadwMostPostsFullDataWOutAnon$anger ,top6ThreadwMostPostsFullData$anger,  "greater", conf.level = 0.95)
+#p-value = 0.2952
+
+t.test(top6ThreadwMostPostsFullDataWOutAnon$social ,top6ThreadwMostPostsFullData$social,  "greater", conf.level = 0.95)
+#p-value = 0.309
+
+t.test(top6ThreadwMostPostsFullDataWOutAnon$leisure ,top6ThreadwMostPostsFullData$leisure,  "less", conf.level = 0.95)
+#p-value = 0.03991
+
+t.test(top6ThreadwMostPostsFullDataWOutAnon$swear ,top6ThreadwMostPostsFullData$swear,  "great", conf.level = 0.95)
+#p-value = 0.5225
+
 #
 #
 #
+#
+
 
 
 #same as above except apply it to the whole data
