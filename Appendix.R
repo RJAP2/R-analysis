@@ -1,17 +1,17 @@
-#install.packages("zoo")
-#install.packages("lubridate")
-#install.packages("ggplot2")
-#install.packages("plyr")
-#install.packages("dplyr")
-#install.packages("scales")
+install.packages("zoo")
+install.packages("lubridate")
+install.packages("ggplot2")
+install.packages("plyr")
+install.packages("dplyr")
+install.packages("scales")
 
 
-#library(zoo)
-#library(lubridate)
-#library(ggplot2)
-#library(plyr)
-#library(dplyr)
-#library(scales)
+library(zoo)
+library(lubridate)
+library(ggplot2)
+library(plyr)
+library(dplyr)
+library(scales)
 
 specify_decimal <- function(x, k) trimws(format(round(x, k), nsmall=k))
 
@@ -86,7 +86,7 @@ bpFormeanOfAnalyticForEachTop6Thread = ggplot(meanOfAnalyticForEachTop6Thread, a
 #make a piechart
 pieFormeanOfAnalyticForEachTop6Thread = bpFormeanOfAnalyticForEachTop6Thread + coord_polar("y", start=0) + geom_text(aes(y = meanOfAnalyticForEachTop6Thread$Freq/2 + c(0, cumsum(meanOfAnalyticForEachTop6Thread$Freq)[-length(meanOfAnalyticForEachTop6Thread$Freq)]), label = meanOfAnalyticForEachTop6Thread$Freq), size=5) + labs(x="", y="") + scale_fill_discrete("Threads")
 
-dev.new()
+dev.new() 
 pieFormeanOfAnalyticForEachTop6Thread
 
 
@@ -203,7 +203,7 @@ noOfPostsPerYearTop5 = as.data.frame(as.table(by(top5ThreadWout252620, year(top5
 #number of posts in top 6 thread without thread 252620
 bpFornoOfPostsPerYearTop5 = ggplot(noOfPostsPerYearTop5, aes(x="", y=noOfPostsPerYearTop5$Freq, fill=noOfPostsPerYearTop5$year.top5ThreadWout252620.Date.)) + geom_bar(width = 1, stat= "identity") +  ggtitle("Number of Posts in Top 6 Thread Without Thread 252620") + scale_fill_discrete(name = "Year") + labs(x="", y="")
 #make bpFornoOfPostsPerYearTop5 in pie chart
-pieFornoOfPostsPerYearTop5 = bpFornoOfPostsPerYearTop5 + coord_polar("y", start=0) + geom_text(aes(y = noOfPostsPerYearTop5$Freq/2 + c(0, cumsum(noOfPostsPerYearTop5$Freq)[-length(noOfPostsPerYearTop5$Freq)]), label = noOfPostsPerYearTop5$Freq), size=5) 
+pieFornoOfPostsPerYearTop5 = bpFornoOfPostsPerYearTop5 + coord_polar("y", start=0) + geom_text(aes(y = noOfPostsPerYearTop5$Freq/3 + c(0, cumsum(noOfPostsPerYearTop5$Freq)[-length(noOfPostsPerYearTop5$Freq)]), label = noOfPostsPerYearTop5$Freq), size=5) 
 
 #GRAPH
 dev.new()
@@ -276,3 +276,4 @@ t.test(anonIn2002To2006$anger, NonAnonIn2002To2006$anger, "less", conf.level = 0
 
 t.test(anonIn2007To2011$anger, NonanonIn2007To2011$anger, "greater", conf.level = 0.95)
 t.test(anonIn2007To2011$negemo, NonanonIn2007To2011$negemo, "greater", conf.level = 0.95)
+
